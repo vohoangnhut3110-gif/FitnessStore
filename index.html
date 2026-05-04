@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fitness Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- MENU -->
+    <input type="checkbox" id="menu-toggle" hidden />
+    <input type="checkbox" id="product-toggle" hidden />
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo-area">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <div class="logo">FITNESS STORE</div>
+      </div>
+    </header>
+
+    <!-- OVERLAY -->
+    <label for="menu-toggle" class="overlay"></label>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <label for="menu-toggle" class="close-btn">✖</label>
+
+      <a href="index.html">Trang chủ</a>
+
+      <label for="product-toggle" class="menu-item">Sản phẩm ▾</label>
+      <div class="submenu">
+        <a href="products.html#all">Tất cả</a>
+        <a href="products.html#whey">Whey Protein</a>
+        <a href="products.html#creatine">Creatine</a>
+        <a href="products.html#other">Omega 3</a>
+      </div>
+
+      <a href="#">Liên hệ</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+      <section class="banner">
+        <h1>Fuel Your Body</h1>
+        <p>Uy tín - An toàn - Chính hãng</p>
+      </section>
+    </div>
+    <!-- BEST SELLERS SECTION -->
+    <section class="best-sellers">
+      <div class="section-header">
+        <h2>Performance Best Sellers</h2>
+        <a href="products.html#all" class="shop-all">SHOP ALL PERFORMANCE</a>
+      </div>
+
+      <div class="grid">
+        <!-- Sản phẩm 1 -->
+        <div class="card">
+          <div class="badge sale">SALE</div>
+          <img
+            src="image/Creatine/nutrabi+HBM.webp"
+            alt="Whey Protein Isolate"
+          />
+          <div class="card-info">
+            <h3>Nutrabio + HBM</h3>
+            <p class="rating">★★★★★ <span>446 Reviews</span></p>
+            <p class="details">2 Sizes | 11 Flavors</p>
+            <p class="price">From 990.000đ</p>
+          </div>
+        </div>
+
+        <!-- Sản phẩm 2 -->
+        <div class="card">
+          <div class="badge sale">SALE</div>
+          <img src="image/Whey/Cbum.webp" alt="Classic Whey" />
+          <div class="card-info">
+            <h3>RAW CBUM Itholate Protein</h3>
+            <p class="rating">★★★★☆ <span>202 Reviews</span></p>
+            <p class="details">2 Sizes | 12 Flavors</p>
+            <p class="price">From 990.000đ</p>
+          </div>
+        </div>
+
+        <!-- Sản phẩm 3 -->
+        <div class="card">
+          <div class="badge new">New Item</div>
+          <img src="image/Creatine/throne.webp" alt="Base Aminos" />
+          <div class="card-info">
+            <h3>Base Aminos</h3>
+            <p class="rating">★★★★★ <span>12 Reviews</span></p>
+            <p class="details">6 Flavors</p>
+            <p class="price">1.390.000đ</p>
+          </div>
+        </div>
+
+        <!-- Sản phẩm 4 -->
+        <div class="card">
+          <div class="badge new">New Item</div>
+          <img src="image/Creatine/FA3.png" alt="Pre-Workout" />
+          <div class="card-info">
+            <h3>Base Pre-Workout</h3>
+            <p class="rating">★★★★☆ <span>67 Reviews</span></p>
+            <p class="details">4 Flavors</p>
+            <p class="price">650.000đ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <p>© 2026 FITNESS STORE</p>
+        <p>Hotline: 0123 456 789</p>
+        <p>Email: support@fitnessstore.vn</p>
+      </div>
+    </footer>
+  </body>
+</html>

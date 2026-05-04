@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* FIX FOOTER LUÔN Ở DƯỚI */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* HEADER */
+header {
+  background: black;
+  color: white;
+  padding: 20px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: black;
+  color: white;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+#menu-toggle:checked ~ .sidebar {
+  left: 0;
+}
+
+#menu-toggle:checked ~ .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* CLOSE */
+.close-btn {
+  display: block;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* LINKS */
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+/* SUBMENU */
+.menu-item {
+  display: block;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.submenu {
+  display: none;
+  padding-left: 15px;
+}
+
+#product-toggle:checked ~ .sidebar .submenu {
+  display: block;
+}
+
+/* BANNER */
+.banner {
+  height: 80vh;
+  background: url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61")
+    center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40px;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 40px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap; /* cho phép xuống dòng */
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 220px;
+  padding: 15px;
+  background: #fff; /* đổi sang trắng */
+  text-align: center;
+  border-radius: 10px;
+
+  border: 1px solid #e5e5e5; /* viền mỏng */
+  /*transition: all 0.3s ease;*/
+}
+
+.products .card img {
+  width: 100%; /* Ảnh rộng bằng khung thẻ */
+  height: 200px; /* Bạn có thể chỉnh 180px hoặc 220px tùy ý */
+  object-fit: contain; /* Ép ảnh vừa vặn vào khung mà không bị méo hay mất hình */
+  padding: 10px; /* Tạo khoảng trống giữa ảnh và viền thẻ */
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 2. Đảm bảo các thẻ card có độ cao bằng nhau trên cùng 1 hàng */
+.products .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.products .card {
+  width: 100%; /* Để grid tự quyết định độ rộng */
+  display: flex;
+  flex-direction: column;
+  justify-content: 间-between; /* Đẩy giá tiền xuống đáy thẻ cho đều */
+  padding: 15px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+
+/* 3. Chỉnh lại tiêu đề sản phẩm để không bị lệch hàng */
+.products .card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  height: 40px; /* Giới hạn chiều cao tiêu đề (khoảng 2 dòng) */
+  overflow: hidden; /* Ẩn nếu tên quá dài */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* FILTER */
+.product-group {
+  display: none;
+}
+
+.product-group:target {
+  display: block;
+}
+
+body:not(:has(:target)) #all {
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+/* BEST SELLERS */
+.best-sellers {
+  padding: 50px 40px;
+  background-color: #fff;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  color: #333;
+  text-transform: none; /* Giống trong hình */
+}
+
+.shop-all {
+  color: #000;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* Thẻ sản phẩm nâng cao */
+.card {
+  position: relative; /* Để làm mốc cho badge */
+  overflow: hidden;
+  transition: 0.3s;
+  flex: 1;
+  min-width: 250px;
+  text-align: left; /* Căn lề trái giống hình */
+}
+
+.card-info h3 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+}
+
+.rating {
+  font-size: 12px;
+  color: #f39c12; /* Màu vàng sao */
+  margin-bottom: 5px;
+}
+
+.rating span {
+  color: #777;
+  text-decoration: underline;
+}
+
+.details {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+}
+
+/* BADGES (SALE/NEW) */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.badge.sale {
+  background-color: #c0392b; /* Màu đỏ */
+}
+
+.badge.new {
+  background-color: #444; /* Màu xám đen */
+}
+
+/* Tùy chỉnh Grid cho index để đẹp hơn */
+.best-sellers .grid {
+  justify-content: space-around;
+}
+/* CHỈ ẢNH HƯỞNG ĐẾN PHẦN BESTSELLERS Ở TRANG CHỦ */
+.best-sellers .grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Căn giữa hàng sản phẩm */
+}
+
+.best-sellers .card {
+  width: 280px; /* Khung thẻ rộng hơn một chút cho sang */
+  flex: 0 0 auto;
+  border: 1px solid #eee;
+  padding: 15px;
+  background: #fff;
+  text-align: left; /* Căn lề trái theo đúng Screenshot 2026-05-04 214528.png */
+}
+
+.best-sellers .card img {
+  width: 100%; /* Luôn rộng bằng khung thẻ */
+  height: 300px; /* Cố định chiều cao cho đều nhau */
+  object-fit: contain; /* Ảnh nằm gọn trong khung, không bị mất hình */
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  transform: none; /* Reset lại các hiệu ứng cũ nếu cần */
+}
+
+/* Hiệu ứng zoom nhẹ khi rê chuột vào riêng phần này */
+.best-sellers .card:hover img {
+  transform: scale(1.02);
+}
